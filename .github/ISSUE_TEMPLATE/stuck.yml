@@ -1,0 +1,35 @@
+name: Stuck / 用着卡住
+description: Tell us where you got stuck, even if nothing broke. / 没出错也欢迎，说说卡在了哪里。
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not post keys, tokens, account passwords, or material you do not want to make public. Read logs before posting them.
+
+        不要贴密钥、令牌、账号密码和不想公开的材料。贴日志前先看一遍。
+
+        You can ask here even if nothing broke. A confusing step or a task you cannot continue is enough.
+
+        不算出错也欢迎提。哪一步没看懂，或事情做不下去，都可以说。
+  - type: textarea
+    id: stuck-step
+    attributes:
+      label: Where did you get stuck? / 卡在哪一步？
+      description: Name the README section or the skill and step. If you are unsure, describe the last thing you did. / 写下 README 的章节，或技能名和步骤。说不清也可以，写下卡住前最后做了什么。
+    validations:
+      required: true
+  - type: textarea
+    id: stuck-goal
+    attributes:
+      label: What were you trying to do? / 当时想做什么？
+    validations:
+      required: true
+  - type: textarea
+    id: attempts
+    attributes:
+      label: What have you tried? / 试过什么？
+      description: If you tried anything, tell us what happened. / 如果试过，写下试了什么、结果怎样。
+  - type: input
+    id: time-spent
+    attributes:
+      label: How long were you stuck? (optional) / 卡了多久（选填）

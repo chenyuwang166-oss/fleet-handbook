@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "id": "metask.fleet-handbook",
+  "version": "0.1.0",
+  "capabilities": ["skill_bundle"]
+}

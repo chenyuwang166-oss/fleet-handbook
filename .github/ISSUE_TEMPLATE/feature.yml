@@ -1,0 +1,28 @@
+name: Feature / 想要什么
+description: Describe what you want to do. No implementation plan needed. / 说说想做成什么事，不用写实现方案。
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not post keys, tokens, account passwords, or material you do not want to make public. Read logs before posting them.
+
+        不要贴密钥、令牌、账号密码和不想公开的材料。贴日志前先看一遍。
+
+        Describe the task in your own words. You do not need to know how to implement it.
+
+        用自己的话说想做什么。不用知道怎么实现。
+  - type: textarea
+    id: feature-goal
+    attributes:
+      label: What do you want to get done? / 想做成什么事？
+    validations:
+      required: true
+  - type: textarea
+    id: current-way
+    attributes:
+      label: How do you do it now, and what gets in the way? / 现在怎么做，哪里不方便？
+  - type: textarea
+    id: wanted-help
+    attributes:
+      label: How would you like the handbook or skills to help? / 希望手册或技能怎么帮你？
+      description: Describe the help you want. No implementation plan needed. / 说想得到什么帮助就行，不用写实现方案。

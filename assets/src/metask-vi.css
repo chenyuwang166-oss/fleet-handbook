@@ -1,0 +1,25 @@
+:root {
+  --brand-deep: #3b2673;
+  --brand-primary: #8a4ed1;
+  --brand-accent: #b35be8;
+  --brand-soft: #e9e6ff;
+  --title-gradient: linear-gradient(120deg, #3b2673 0%, #8a4ed1 55%, #b35be8 100%);
+  --hero-glow: radial-gradient(ellipse at 50% 0%, #8a4ed12e, transparent 67%);
+  --text: #0f1115;
+  --text-2: #4b4e57;
+  --muted: #686a72;
+  --canvas: #f7f8fa;
+  --panel: #ffffff;
+  --panel-3: #f1f0f7;
+  --line: #0f11151a;
+  --line-strong: #0f11153d;
+  --peer: #b9bbc2;
+  --peer-light: #dcdde2;
+  --status-success: #4c9a72;
+  --status-error: #c85a5a;
+  --shadow-node: 0 1px 2px #3b26730f, 0 6px 18px #3b267314;
+  --shadow-canvas: 0 12px 40px #3b26731f;
+  --font-zh: "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+  --font-en: "Inter", "Noto Sans", "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", "Cascadia Mono", Consolas, monospace;
+}

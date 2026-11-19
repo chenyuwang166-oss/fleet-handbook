@@ -1,0 +1,7 @@
+{
+  "name": "fleet-handbook",
+  "version": "0.1.0",
+  "description": "Nine skills for organizing an AI fleet, with a companion handbook.",
+  "skills": "./skills/",
+  "license": "MIT"
+}

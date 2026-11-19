@@ -1,0 +1,5 @@
+{
+  "name": "fleet-handbook",
+  "owner": {"name": "MeTask AI Lab"},
+  "plugins": [{"name": "fleet-handbook", "source": "./"}]
+}

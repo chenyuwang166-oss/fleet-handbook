@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions and answers / 问答
+    url: https://github.com/chenyuwang166-oss/fleet-handbook/discussions/categories/q-a
+    about: Ask how to use the handbook or skills. / 问问手册或技能怎么用。
+  - name: Show your fleet and charts / 晒舰队、晒图
+    url: https://github.com/chenyuwang166-oss/fleet-handbook/discussions/categories/show-and-tell
+    about: Share your fleet, charts, or screenshots. / 分享舰队、组织图或截图。

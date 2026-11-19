@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "languages": ["zh", "en"],
+  "maxScore": 36,
+  "rubric": {
+    "zh": "这是对实际做法的自测，不是能力认证。每题0至4分，总分36分。各级分数线是关键做法的最低分之和；总分高不能替代关键做法。请选目前经常做到的一项。",
+    "en": "This checks your current working practices; it is not a certification. Each answer scores 0–4, for a total of 36. Each threshold is the sum of its required practices' minimum scores; a high total cannot replace those practices. Choose what you regularly do today."
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "title": {"zh": "一件活开始时，你怎样安排AI的角色？", "en": "How do you assign AI roles when work starts?"},
+      "options": [
+        {"id": "q1-0", "score": 0, "label": {"zh": "交给一个AI，不分角色。", "en": "I give it to one AI without assigning roles."}},
+        {"id": "q1-1", "score": 1, "label": {"zh": "让一个AI在同一轮里扮演几个角色。", "en": "I ask one AI to take several roles in one round."}},
+        {"id": "q1-2", "score": 2, "label": {"zh": "让一个AI按角色分轮做，各轮交付写清楚。", "en": "One AI works in separate role-based rounds, each with a defined output."}},
+        {"id": "q1-3", "score": 3, "label": {"zh": "给几个AI分岗位，各自有职责和交付。", "en": "Several AIs have assigned roles, responsibilities and outputs."}},
+        {"id": "q1-4", "score": 4, "label": {"zh": "岗位持续保留，负责什么、交给谁都有记录。", "en": "Roles persist, with recorded responsibilities and handoffs."}}
+      ]
+    },
+    {
+      "id": "q2",
+      "title": {"zh": "一项工作要经过几步时，AI之间怎样接力？", "en": "How do AIs hand work over across several steps?"},
+      "options": [
+        {"id": "q2-0", "score": 0, "label": {"zh": "一个AI从头做到尾。", "en": "One AI handles everything."}},
+        {"id": "q2-1", "score": 1, "label": {"zh": "我临时把内容转给另一个AI。", "en": "I pass content to another AI as needed."}},
+        {"id": "q2-2", "score": 2, "label": {"zh": "几个AI按写好的步骤接力，前一步交付是后一步输入。", "en": "Several AIs follow written steps; each output feeds the next step."}},
+        {"id": "q2-3", "score": 3, "label": {"zh": "每一步还有交付标准和接手人。", "en": "Each step also has an output standard and a named receiver."}},
+        {"id": "q2-4", "score": 4, "label": {"zh": "交接会核对实际状态，不合格就退回对应步骤。", "en": "Handoffs check the actual state and return failed work to the right step."}}
+      ]
+    },
+    {
+      "id": "q3",
+      "title": {"zh": "你怎样把不同厂商的AI用到同一项工作里？", "en": "How do you use AIs from different providers on the same work?"},
+      "options": [
+        {"id": "q3-0", "score": 0, "label": {"zh": "只用一个AI。", "en": "I use one AI."}},
+        {"id": "q3-1", "score": 1, "label": {"zh": "用几个AI，但来自同一家厂商。", "en": "I use several AIs from the same provider."}},
+        {"id": "q3-2", "score": 2, "label": {"zh": "用不同厂商的AI，但各做各的活。", "en": "I use different providers, but on separate work."}},
+        {"id": "q3-3", "score": 3, "label": {"zh": "不同厂商的AI在同一项工作里分工、交接。", "en": "AIs from different providers divide and hand over the same work."}},
+        {"id": "q3-4", "score": 4, "label": {"zh": "按任务分派不同厂商的AI，分工和交接有记录。", "en": "I assign AIs from different providers by task, recording roles and handoffs."}}
+      ]
+    },
+    {
+      "id": "q4",
+      "title": {"zh": "AI交回的东西，由谁来审？", "en": "Who reviews an AI's output?"},
+      "options": [
+        {"id": "q4-0", "score": 0, "label": {"zh": "通常直接用。", "en": "I usually use it directly."}},
+        {"id": "q4-1", "score": 1, "label": {"zh": "作者自查，或只由我来审。", "en": "The author checks itself, or I am the only reviewer."}},
+        {"id": "q4-2", "score": 2, "label": {"zh": "另一个AI独立审，但未固定跨厂商。", "en": "Another AI reviews independently, without a cross-provider rule."}},
+        {"id": "q4-3", "score": 3, "label": {"zh": "另一家厂商的AI独立核对要求和交付，作者不验收自己。", "en": "An AI from another provider independently checks requirements and output; authors do not accept their own work."}},
+        {"id": "q4-4", "score": 4, "label": {"zh": "跨厂商独立审后，修改过的交付还要复核。", "en": "After independent cross-provider review, revised output is checked again."}}
+      ]
+    },
+    {
+      "id": "q5",
+      "title": {"zh": "一项工作结束后，岗位和部门怎样处理？", "en": "What happens to roles and departments when a task ends?"},
+      "options": [
+        {"id": "q5-0", "score": 0, "label": {"zh": "没有分岗位或部门。", "en": "I do not use roles or departments."}},
+        {"id": "q5-1", "score": 1, "label": {"zh": "临时分工，做完就散。", "en": "Assignments end when the task ends."}},
+        {"id": "q5-2", "score": 2, "label": {"zh": "会复用角色说明，但部门不常设。", "en": "I reuse role descriptions, without standing departments."}},
+        {"id": "q5-3", "score": 3, "label": {"zh": "常设部门有固定职责和交接位置，下一项工作接着用。", "en": "Standing departments keep their responsibilities and handoff locations for the next task."}},
+        {"id": "q5-4", "score": 4, "label": {"zh": "常设部门按实际工作提出新岗位，由审批表授权的岗位决定是否增设。", "en": "Standing departments propose roles based on the work. The role named in the approval table decides whether to add them."}}
+      ]
+    },
+    {
+      "id": "q6",
+      "title": {"zh": "换窗口或重启后，怎样接上工作？", "en": "How do you resume work after a restart or a new window?"},
+      "options": [
+        {"id": "q6-0", "score": 0, "label": {"zh": "靠我重新讲一遍。", "en": "I explain everything again."}},
+        {"id": "q6-1", "score": 1, "label": {"zh": "找聊天记录，临时整理。", "en": "I reconstruct it from chat history."}},
+        {"id": "q6-2", "score": 2, "label": {"zh": "有项目文件，但何时读写没有固定做法。", "en": "Project files exist, but reading and updating them is ad hoc."}},
+        {"id": "q6-3", "score": 3, "label": {"zh": "固定做了重启先读、收工先写中的一个动作。", "en": "I consistently do one of these: read before resuming, or write before stopping."}},
+        {"id": "q6-4", "score": 4, "label": {"zh": "重启先读项目卡和最新交接、核对实际状态；收工先写交接，决定另有记录。", "en": "Before resuming, AIs read the project card and latest handoff and verify the actual state; before stopping, they write a handoff. Decisions are recorded."}}
+      ]
+    },
+    {
+      "id": "q7",
+      "title": {"zh": "规则没写到的情况，成员怎样判断？", "en": "How do members decide when rules do not cover a situation?"},
+      "options": [
+        {"id": "q7-0", "score": 0, "label": {"zh": "临时决定，没有共同依据。", "en": "They decide ad hoc, without shared principles."}},
+        {"id": "q7-1", "score": 1, "label": {"zh": "通常由我逐件答复。", "en": "I usually answer each case."}},
+        {"id": "q7-2", "score": 2, "label": {"zh": "有共同原则，但只写了口号。", "en": "Shared principles exist, but only as slogans."}},
+        {"id": "q7-3", "score": 3, "label": {"zh": "写了做什么、不做什么，条款还在等审核或决定。", "en": "The principles specify actions and limits and are awaiting review or a decision."}},
+        {"id": "q7-4", "score": 4, "label": {"zh": "成员提议并经过两级审核，人定方向，有授权的岗位定行为条款，成员据此做实际判断。", "en": "Members propose values for two rounds of review. The human sets direction, authorized roles decide the rules for putting it into practice, and members use those rules in decisions."}}
+      ]
+    },
+    {
+      "id": "q8",
+      "title": {"zh": "人在这支团队里怎样参与？", "en": "How does a human take part in the team?"},
+      "options": [
+        {"id": "q8-0", "score": 0, "label": {"zh": "发出问题，收到答案。", "en": "I ask questions and receive answers."}},
+        {"id": "q8-1", "score": 1, "label": {"zh": "逐步指挥，所有事都回来问我。", "en": "I direct each step; every decision comes back to me."}},
+        {"id": "q8-2", "score": 2, "label": {"zh": "有些事授权给AI，但没有写清谁定什么。", "en": "I delegate some decisions, without a written division of authority."}},
+        {"id": "q8-3", "score": 3, "label": {"zh": "写清了谁定什么，但人没有列进组织分工。", "en": "Decision rights are written down, but the human is not included in the organization."}},
+        {"id": "q8-4", "score": 4, "label": {"zh": "人列在组织里面，管方向、对外承诺、花钱和删东西，各岗位的授权范围写清楚。", "en": "The human is part of the organization and decides direction, external commitments, spending and deletion. Each role has clear authority."}}
+      ]
+    },
+    {
+      "id": "q9",
+      "title": {"zh": "你怎样确认一项工作真的做完了？", "en": "How do you confirm that work is done?"},
+      "options": [
+        {"id": "q9-0", "score": 0, "label": {"zh": "AI说完成了，就结束。", "en": "I stop when the AI says it is done."}},
+        {"id": "q9-1", "score": 1, "label": {"zh": "我看一遍结果。", "en": "I read through the result."}},
+        {"id": "q9-2", "score": 2, "label": {"zh": "开始前写交付要求，交回时逐项核对。", "en": "I write output requirements before work and check each on delivery."}},
+        {"id": "q9-3", "score": 3, "label": {"zh": "把完成、交付和合格分开检查，要求对应证据。", "en": "I distinguish completion, delivery and acceptance, checking evidence for each."}},
+        {"id": "q9-4", "score": 4, "label": {"zh": "核对实际结果，记录未完成和待人决定的事，下一位能接上。", "en": "I verify the actual result and record unfinished work and pending human decisions for the next person."}}
+      ]
+    }
+  ],
+  "levels": [
+    {
+      "level": 1, "minScore": 0, "requires": [],
+      "title": {"zh": "用一个AI", "en": "Working with one AI"},
+      "card": {"zh": "我与AI一起，把一件真实的活做下去。", "en": "I work with AI on real tasks."},
+      "summary": {"zh": "当前做法以一个AI接下整件活为主。", "en": "Your current practice centers on one AI handling the work."},
+      "next": {"zh": "挑一件真实的活，让一个AI分角色做，写清每个角色交什么。", "en": "Choose a real task. Give one AI distinct roles and define each role's output."},
+      "skills": ["fleet-setup", "fleet-taskbook"],
+      "chapters": [1, 2]
+    },
+    {
+      "level": 2, "minScore": 1, "requires": [{"question": "q1", "minScore": 1}],
+      "title": {"zh": "按角色分开干活", "en": "Working in separate roles"},
+      "card": {"zh": "我的工作已经按角色分开做。", "en": "My work is already split by role."},
+      "summary": {"zh": "你已开始按角色安排工作，角色之间的接力还可写得更清楚。", "en": "You assign work by role; the handoffs between roles can become clearer."},
+      "next": {"zh": "让几个AI按流程接力，写清每一步的输入、交付和接手人。", "en": "Have several AIs follow a workflow. Define each step's input, output and receiver."},
+      "skills": ["fleet-taskbook", "fleet-setup"],
+      "chapters": [1, 2]
+    },
+    {
+      "level": 3, "minScore": 4, "requires": [{"question": "q1", "minScore": 2}, {"question": "q2", "minScore": 2}],
+      "title": {"zh": "几个AI按流程接力", "en": "Several AIs following a workflow"},
+      "card": {"zh": "前一步的交付，接着成为下一步的输入。", "en": "Each output becomes the input for the next step."},
+      "summary": {"zh": "几个AI已经按步骤接力，前一步的交付会交给下一步。", "en": "Several AIs pass work along defined steps, using each other's outputs."},
+      "next": {"zh": "把同一项工作分给不同厂商的AI，让另一家独立审，作者不验收自己；完成、交付、合格分开检查。", "en": "Divide the same work across providers. Have another provider review independently; authors do not accept their own work. Check completion, delivery and acceptance separately."},
+      "skills": ["fleet-dispatch", "fleet-taskbook"],
+      "chapters": [2]
+    },
+    {
+      "level": 4, "minScore": 13, "requires": [{"question": "q1", "minScore": 2}, {"question": "q2", "minScore": 2}, {"question": "q3", "minScore": 3}, {"question": "q4", "minScore": 3}, {"question": "q9", "minScore": 3}],
+      "title": {"zh": "几家厂商的AI分工、互相审", "en": "AIs from different providers divide and review work"},
+      "card": {"zh": "完成、交付和合格，分别核对证据。", "en": "I check evidence for completion, delivery and acceptance separately."},
+      "summary": {"zh": "不同厂商的AI在同一项工作里分工，并由另一家独立审。", "en": "AIs from different providers divide the same work and review it independently."},
+      "next": {"zh": "保留常设部门；重启先读、收工先写；核对实际结果，记下没做完和待人定的事；把人的职责列进组织，按审批表定下落实价值观的行为条款。", "en": "Keep standing departments. Read before resuming and write before stopping. Verify actual results and record unfinished work and pending human decisions. Include the human’s responsibilities in the organization and use the approval table to decide rules for putting values into practice."},
+      "skills": ["fleet-chart", "fleet-memory", "fleet-setup", "fleet-values"],
+      "chapters": [1, 3, 5]
+    },
+    {
+      "level": 5, "minScore": 29, "requires": [{"question": "q1", "minScore": 2}, {"question": "q2", "minScore": 2}, {"question": "q3", "minScore": 3}, {"question": "q4", "minScore": 3}, {"question": "q5", "minScore": 3}, {"question": "q6", "minScore": 4}, {"question": "q7", "minScore": 4}, {"question": "q8", "minScore": 4}, {"question": "q9", "minScore": 4}],
+      "title": {"zh": "常设的 AI 舰队", "en": "A standing AI fleet"},
+      "card": {"zh": "有部门、有记忆、有价值观，人在组织里面。", "en": "Departments, memory and values stay in place, with the human inside the organization."},
+      "summary": {"zh": "常设的 AI 舰队：有部门、有记忆、有价值观，人在组织里面。", "en": "A standing AI fleet with departments, memory and values, with the human inside the organization."},
+      "next": {"zh": "继续核对实际交付和交接，按真实工作调整岗位、记忆和规则。", "en": "Keep checking actual outputs and handoffs. Adjust roles, memory and rules to the work."},
+      "skills": ["fleet-memory", "fleet-precheck", "fleet-values"],
+      "chapters": [3, 4, 5]
+    }
+  ]
+}

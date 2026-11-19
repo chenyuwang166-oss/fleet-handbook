@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite AI Fleet Handbook."
+title: "AI Fleet Handbook"
+type: software
+authors:
+  - family-names: "Wong"
+    given-names: "Rain"
+    affiliation: "MeTask AI Lab"
+  - name: "MeTask AI Lab"
+repository-code: "https://github.com/chenyuwang166-oss/fleet-handbook"
+license: MIT
+version: "0.1.0"
+date-released: "2026-11-19"
+abstract: "This repository shares how an AI fleet organizes its daily work: nine skills, a handbook, and a self-check."

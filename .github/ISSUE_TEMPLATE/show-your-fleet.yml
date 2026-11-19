@@ -1,0 +1,47 @@
+name: Show your fleet / 晒舰队
+description: Share one rule you tried, or show how your fleet works. / 可以只交一条试过的规矩，也可以晒舰队的分工。
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not post keys, tokens, account passwords, or material you do not want to make public. Read logs before posting them.
+
+        不要贴密钥、令牌、账号密码和不想公开的材料。贴日志前先看一遍。
+  - type: textarea
+    id: rule
+    attributes:
+      label: A rule you tried / 一条试过的规矩
+      description: |
+        You can submit this field on its own. What was the rule, when did it apply, and how did you try it? Give the result or a counterexample.
+
+        可以只填这一栏。这条规矩是什么？适用什么情况？你是怎么试的？写下结果，或者举一个反例。
+  - type: textarea
+    id: organization-chart
+    attributes:
+      label: Organization chart (optional) / 组织图（选填）
+      description: |
+        Paste the full mermaid code block from fleet/组织图.md or fleet/chart.md. Keep the opening and closing fence lines. GitHub will draw it in the submitted issue. A screenshot is also fine.
+
+        把 fleet/组织图.md 或 fleet/chart.md 里的整段 mermaid 代码块贴进来，保留首尾围栏行。提交后 GitHub 会画出来。贴截图也行。
+    validations:
+      required: false
+  - type: textarea
+    id: fleet-work
+    attributes:
+      label: What is your fleet working on? / 这支舰队在做什么？
+    validations:
+      required: false
+  - type: input
+    id: provider-count
+    attributes:
+      label: How many model providers do you use? / 用了几家模型厂商？
+      description: A number is enough. No model names needed. / 写数量就行，不用写模型名。
+  - type: textarea
+    id: human-decisions
+    attributes:
+      label: Which decisions do you keep for yourself? / 哪些事留给自己定？
+  - type: textarea
+    id: extra-images
+    attributes:
+      label: Self-check card or board screenshots (optional) / 自测卡、看板截图（选填）
+      description: Paste or upload images if you want to share them. / 愿意分享的话，可以粘贴或上传图片。

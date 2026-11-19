@@ -1,0 +1,46 @@
+name: Bug / 出了错
+description: Tell us what went wrong and how to reproduce it. / 说说出了什么错，怎么复现。
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not post keys, tokens, account passwords, or material you do not want to make public. Read logs before posting them.
+
+        不要贴密钥、令牌、账号密码和不想公开的材料。贴日志前先看一遍。
+  - type: textarea
+    id: environment
+    attributes:
+      label: Tools and versions, OS, Python / 工具和版本、操作系统、Python
+      description: Fill in what you know. Leave Python out if you did not use it. / 知道多少写多少。没用到 Python 就不用填。
+      placeholder: |
+        Tools and versions:
+        Operating system:
+        Python version (if used):
+
+        工具和版本：
+        操作系统：
+        Python 版本（用到才填）：
+  - type: textarea
+    id: readme-step
+    attributes:
+      label: README step and command / README 的哪一步、用了什么命令
+      description: Name the section and paste the command you ran. Leave out secrets. / 写下章节，贴出执行的命令。先去掉敏感信息。
+  - type: textarea
+    id: actual-and-expected
+    attributes:
+      label: What happened, and what did you expect? / 出了什么问题，本来该怎样？
+      placeholder: |
+        What happened:
+        What I expected:
+
+        实际发生了什么：
+        本来应该怎样：
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce / 怎么复现
+      description: List what you did, in order. If you are not sure which steps matter, list them all; if you cannot reproduce it yet, say so. / 按顺序写你做了什么。不确定哪些步骤要紧，就都写上；暂时复现不了也请写明。
+    validations:
+      required: true

@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="description" content="9 道关于真实工作方式的问题，看看你现在怎么分工。">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; base-uri 'none'; form-action 'none'">
+<title>我的 AI 舰队 · AI Fleet Handbook</title>
+<style>
+:root{--brand-deep:#3b2673;--brand-primary:#8a4ed1;--brand-accent:#b35be8;--brand-soft:#e9e6ff;--text:#0f1115;--text-2:#4b4e57;--muted:#686a72;--canvas:#f7f8fa;--panel:#ffffff;--panel-3:#f1f0f7;--line:#0f11151a;--line-strong:#0f11153d;--peer:#b9bbc2;--peer-light:#dcdde2;--shadow-node:0 1px 2px #3b26730f,0 6px 18px #3b267314;--font-zh:"Noto Sans SC","Source Han Sans SC","Microsoft YaHei",sans-serif;--font-en:"Inter","Noto Sans","Segoe UI",sans-serif;--font-mono:"IBM Plex Mono","Cascadia Mono",Consolas,monospace;--paper:var(--canvas);--ink:var(--text);--accent:var(--brand-primary);--mint:var(--brand-soft);--white:var(--panel);--font:var(--font-zh)}
+html:lang(en){--font:var(--font-en)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--font)}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}button:disabled{cursor:default;opacity:.45}a{color:var(--ink);text-underline-offset:4px}button:focus-visible,a:focus-visible,input:focus-visible+span{outline:3px solid var(--accent);outline-offset:4px}[hidden]{display:none!important}.shell{max-width:1100px;margin:auto;padding:28px 40px 24px}.header{display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:20px}.brand{display:flex;align-items:center;gap:12px;color:var(--brand-deep);font-weight:750;line-height:1.25;letter-spacing:.02em}.brand img{display:block;width:36px;height:36px;flex-shrink:0}.brand small{display:block;font-weight:500;font-size:11px;letter-spacing:.1em;margin-top:6px}.language{border:1px solid var(--line);border-radius:999px;padding:7px 17px;background:transparent;color:var(--ink);font-size:14px}.eyebrow{font-size:12px;letter-spacing:.14em;font-weight:700;color:var(--muted);text-transform:uppercase}.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:center;padding:76px 0 62px}.hero h1{font-size:clamp(36px,4.5vw,58px);letter-spacing:-.045em;line-height:1.22;margin:22px 0}.hero p{max-width:440px;color:var(--muted);margin:0 0 30px}.primary,.secondary{border-radius:10px;padding:13px 25px;font-weight:650;min-height:50px}.primary{border:1px solid var(--brand-deep);background:var(--brand-deep);color:var(--white)}.secondary{border:1px solid var(--line);background:transparent;color:var(--ink)}.hero .primary{min-width:190px}.meta{font-size:13px;color:var(--muted);margin-top:17px}.level-list{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--white)}.level-row{display:grid;grid-template-columns:45px 1fr;align-items:center;gap:14px;padding:19px 22px;line-height:1.6}.level-row+.level-row{border-top:1px solid var(--line)}.level-row:last-child{background:var(--mint)}.level-row b{color:var(--brand-deep);font-size:21px;letter-spacing:-.04em}.level-row span{font-size:14px}.footer{display:flex;justify-content:space-between;gap:14px;border-top:1px solid var(--line);padding-top:18px;font-size:12px;color:var(--muted)}.footer p{margin:0}.footer .lab{color:var(--brand-deep);font-weight:650;margin-top:6px}.footer .tag{white-space:nowrap}.quiz{max-width:700px;margin:45px auto 55px}.progress-row{display:flex;justify-content:space-between;gap:15px;font-size:13px;color:var(--muted);margin-bottom:10px}.progress{height:4px;background:var(--line);border-radius:8px;overflow:hidden;margin-bottom:32px}.progress div{height:100%;background:var(--brand-primary);transition:width .2s}.quiz h2{font-size:clamp(25px,3.3vw,33px);line-height:1.4;letter-spacing:-.025em;margin:0 0 10px}.question-hint{color:var(--muted);font-size:14px;margin:0 0 25px}.options{display:grid;gap:10px;border:0;padding:0;margin:0}.option{position:relative;display:block;cursor:pointer}.option input{position:absolute;opacity:0;width:1px;height:1px}.option span{display:flex;align-items:center;gap:15px;min-height:62px;padding:15px 20px;border:1px solid var(--line);border-radius:10px;background:var(--white);font-size:15px;line-height:1.55}.option span::before{content:'';width:18px;height:18px;flex-shrink:0;border:1px solid var(--muted);border-radius:50%}.option input:checked+span{border:2px solid var(--brand-primary);padding:14px 19px;background:var(--mint)}.option input:checked+span::before{border:5px solid var(--brand-primary);background:var(--white)}.option:hover span{border-color:var(--ink)}.quiz-nav{display:flex;justify-content:space-between;margin-top:25px;gap:14px}.question-footnote{font-size:12px;color:var(--muted);margin:20px 0 0}.result{padding:45px 0 50px}.result-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:start}.level-number{color:var(--brand-deep);font-size:112px;font-weight:800;letter-spacing:-.08em;line-height:1.1;margin:12px 0}.result h1{font-size:30px;line-height:1.45;letter-spacing:-.03em;margin:20px 0 12px}.summary{color:var(--muted);margin:0 0 28px;font-size:17px}.next-step{border-top:1px solid var(--line);padding-top:22px}.next-step h2{font-size:15px;margin:0 0 9px}.next-step p{margin:0 0 12px;font-size:15px}.skill-links{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 16px}.skill-links a{font-size:12px;padding:5px 10px;border:1px solid var(--line);border-radius:6px;text-decoration:none;background:var(--white)}.chapters{font-size:13px!important;color:var(--muted)}#chapter-links a+a{margin-left:10px}.result-actions{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}.card-panel{border:1px solid var(--line);border-radius:16px;padding:20px;background:var(--panel-3)}.card-panel h2{font-size:15px;margin:0 0 14px}.formats{display:flex;gap:7px;margin-bottom:16px}.formats button{flex:1;background:transparent;color:var(--ink);border:1px solid var(--line-strong);border-radius:7px;font-size:12px;padding:9px 8px}.formats button[aria-pressed="true"]{background:var(--brand-deep);border-color:var(--brand-deep);color:var(--white)}#share-card{width:100%;height:auto;display:block;border-radius:5px;box-shadow:var(--shadow-node)}.download{width:100%;margin-top:17px}.download-hint{font-size:12px;color:var(--muted);margin:12px 0 0}.privacy{font-size:12px;color:var(--muted)}.status{font-size:13px;margin-top:12px;min-height:22px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}noscript p{padding:20px;border:1px solid var(--accent)}
+@media(max-width:760px){.shell{padding:22px 20px}.hero{grid-template-columns:1fr;gap:32px;padding:42px 0 36px}.hero h1{max-width:500px;margin-top:17px}.hero p{margin-bottom:24px}.level-row{padding:14px 18px;grid-template-columns:36px 1fr}.level-row span{font-size:13px}.footer{flex-direction:column;font-size:11px;gap:4px}.quiz{margin:32px auto}.quiz h2{font-size:25px}.option span{padding:14px 15px;font-size:14px}.option input:checked+span{padding:13px 14px}.result{padding-top:28px}.result-grid{grid-template-columns:1fr;gap:30px}.level-number{font-size:96px}.result h1{font-size:26px}.card-panel{max-width:470px;width:100%;margin:auto}.question-hint{margin-bottom:20px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="header"><div class="brand"><img id="metask-logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI4LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IuWbvuWxgl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIKCSB2aWV3Qm94PSIwIDAgODAwIDgwMCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgODAwIDgwMDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiM3MDNGQTg7c3Ryb2tlOiM3MDNGQTg7c3Ryb2tlLXdpZHRoOjMxLjE4MTE7c3Ryb2tlLW1pdGVybGltaXQ6MTA7fQo8L3N0eWxlPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzk5LjU1LDQzMC44MmMtMS43NCwzLjgxLTMuMTYsNy4wOC00LjcsMTAuMjljLTcuMTEsMTQuOS0xMy44OCwyOS45Ny0yMS40NSw0NC42MgoJYy0xMi4yOSwyMy43Ny0yNC43OCw0Ny40Ny0zNy44Myw3MC44M2MtMTIuODksMjMuMDYtMjYuODksNDUuNDktNDIuMSw2Ny4xMmMtOS41NCwxMy41Ny0xOS40MiwyNi45MS0zMC40OCwzOS4zCgljLTEwLjUzLDExLjgtMjEuNTIsMjMuMTQtMzQuMzcsMzIuNTFjLTEwLjgzLDcuOS0yMi4zOSwxNC4yNi0zNS41MSwxNy40NWMtMTQuODEsMy42LTI5LjE3LDIuMzEtNDMuMjItMy42MQoJYy0xOC4xMy03LjY0LTMyLjYtMTkuOTEtNDQuOTItMzQuOTdjLTExLjk3LTE0LjYzLTIxLjUxLTMwLjc2LTI5LjgtNDcuN2MtNy45OS0xNi4zNC0xNC42OC0zMy4yLTIwLjA3LTUwLjUzCgljLTQuMDctMTMuMDctNy42My0yNi4zMi0xMC43Ni0zOS42NWMtMy4wNS0xMi45OS01LjY1LTI2LjEyLTcuNzQtMzkuMjljLTMuMDgtMTkuMzYtNS4xMy0zOC44Ni02LjM3LTU4LjQ1CgljLTEuNi0yNS4xNC0xLjYtNTAuMjctMC4yNS03NS40YzEuMTUtMjEuMzEsMy4xMy00Mi41Niw2LjUyLTYzLjY0YzMuNzgtMjMuNDgsOC45NS00Ni42NiwxNS45OS02OS4zOQoJYzcuMjgtMjMuNDksMTYuMTYtNDYuMzEsMjcuNjktNjguMDdjMTAuMjYtMTkuMzYsMjIuNjUtMzcuMTEsMzguOTMtNTEuOTRjMTMuMzctMTIuMTcsMjguNDYtMjEuMTYsNDYuNTUtMjQuMgoJYzE0LjI1LTIuNCwyNy45Ny0wLjQ5LDQxLjI4LDUuMjVjMTQuMjYsNi4xNCwyNi40NSwxNS4yMSwzNy43OCwyNS42YzIwLjUsMTguODIsMzcuMjgsNDAuNzQsNTIuOTMsNjMuNgoJYzE0LjA4LDIwLjU2LDI2Ljk1LDQxLjg4LDM5LjAyLDYzLjY3YzEwLjEyLDE4LjI2LDIwLjAyLDM2LjY0LDI5LjY0LDU1LjE2YzUuNjIsMTAuODEsMTAuNjIsMjEuOTYsMTUuNzIsMzMuMDQKCWM1LjcsMTIuMzgsMTEuMiwyNC44NSwxNi43OCwzNy4yOGMwLjI1LDAuNTYsMC41NSwxLjEsMS4wNCwyLjA5YzAuNTQtMC45NCwwLjkyLTEuNSwxLjItMi4xYzUuMDgtMTEuMDksOS44Ny0yMi4zMiwxNS4yNy0zMy4yNgoJYzEyLjU5LTI1LjQ3LDI0Ljk2LTUxLjA2LDM4LjM4LTc2LjA4YzExLjA5LTIwLjY2LDIzLjM2LTQwLjcsMzUuNDgtNjAuNzljMTAuNS0xNy40LDIyLjE5LTM0LjAzLDM0LjktNDkuOTEKCWMxMS45Ni0xNC45NSwyNC45Mi0yOC45NywzOS45OC00MC44N2MxMC4yOS04LjEzLDIxLjM2LTE1LjA4LDMzLjg3LTE5LjM3YzIwLjYzLTcuMDgsNDAuNjYtNS43Myw2MC4wMiw0LjQ5CgljMTUuOTEsOC40MSwyOC42NywyMC40OSwzOS44MiwzNC4zOWMxMy42MywxNi45OSwyMy45LDM2LjAxLDMyLjMyLDU1Ljk1YzUuOTYsMTQuMTIsMTAuOTYsMjguNjcsMTUuOTMsNDMuMTgKCWM1Ljg1LDE3LjA3LDkuNzUsMzQuNjgsMTMuMTUsNTIuMzhjMy44OCwyMC4xOCw2LjY3LDQwLjUzLDguMzUsNjEuMDJjMS44OSwyMy4xNSwyLjg0LDQ2LjMzLDIuMzcsNjkuNTUKCWMtMC40NywyMy4wNy0yLjAyLDQ2LjA2LTUuMDcsNjguOTVjLTMuNTEsMjYuMzctOC43Miw1Mi4zOS0xNS42OSw3OC4wNmMtNy43OCwyOC42My0xOC4wNyw1Ni4zMS0zMi4xMyw4Mi40OAoJYy05LjIsMTcuMTMtMTkuODYsMzMuMzItMzMuODYsNDcuMDJjLTExLjk1LDExLjctMjUuMjksMjEuMjgtNDEuNzEsMjUuN2MtMTguMTksNC45LTM1LjU3LDIuMTctNTIuMzMtNS45MQoJYy0xNS45NC03LjY4LTI5LjMtMTguODEtNDEuNzgtMzEuMTNjLTE5LjI2LTE5LjAxLTM1LjI5LTQwLjYtNTAuMjctNjMuMDJjLTEzLjU2LTIwLjI5LTI2LjQtNDEuMDMtMzcuODQtNjIuNTgKCWMtMTMuODgtMjYuMTYtMjcuNS01Mi40Ni00MC45Ny03OC44M2MtNi40Ni0xMi42NC0xMi4zMS0yNS41OS0xOC40NC0zOC4zOUM0MDAuNTYsNDMyLjI0LDQwMC4yMSw0MzEuODIsMzk5LjU1LDQzMC44MnoKCSBNNzUyLjE5LDM5My40NmMwLTUuNzUsMC4yNC0xMS41LTAuMDUtMTcuMjRjLTAuNTktMTEuNzYtMS4wNy0yMy41NS0yLjMxLTM1LjI1Yy0xLjk1LTE4LjM1LTQuMzctMzYuNjctOC41NC01NC42NgoJYy0zLTEyLjk4LTYuMTYtMjUuOTctMTAuMjQtMzguNjNjLTQuMTktMTMuMDEtOS4xNC0yNS44MS0xNC41My0zOC4zOGMtNy4wOC0xNi41Mi0xNS45OC0zMi4wNy0yNy4zMy00Ni4xMwoJYy05LjA5LTExLjI2LTE5LjIxLTIxLjMtMzEuODctMjguNThjLTE3LjIzLTkuOTItMzUuMi0xMi4wMi01NC4wOS01LjUzYy0xNC4wMSw0LjgxLTI1LjU1LDEzLjUyLTM2LjQ5LDIzLjE1CgljLTE2LjQzLDE0LjQ3LTI5Ljk3LDMxLjUxLTQyLjg5LDQ5LjA1Yy0xNC4zMSwxOS40NC0yNy4xOSwzOS44MS0zOS4zNiw2MC42NmMtMTcuNDUsMjkuOS0zMy4yMiw2MC42Ny00OC40MSw5MS43NQoJYy03LjQ3LDE1LjI4LTE0LjY5LDMwLjY4LTIxLjkzLDQ2LjA4Yy0wLjQ3LDEtMC40OCwyLjYxLTAuMDEsMy42MWM2LjI0LDEzLjI0LDEyLjUyLDI2LjQ3LDE4Ljk3LDM5LjYxCgljMTIuODQsMjYuMTUsMjYuNTQsNTEuODQsNDAuOTUsNzcuMTZjMTMuNDcsMjMuNjYsMjguMDUsNDYuNiw0My41OCw2OC45NWMxMS43MywxNi44OSwyNC4zNCwzMy4wNywzOC42Myw0Ny44OAoJYzEwLjY2LDExLjA0LDIyLjExLDIxLjE1LDM1LjY4LDI4LjU3YzIyLjUzLDEyLjMxLDQ0Ljk2LDEyLjM3LDY3LjE1LTAuODhjMTQuMDctOC40LDI0Ljk5LTIwLjE2LDM0LjMxLTMzLjQyCgljMTUuMTItMjEuNSwyNS40OS00NS4zNiwzNC4wMS03MC4wOGMxMC40LTMwLjE4LDE2Ljk5LTYxLjIyLDIwLjkyLTkyLjg2Qzc1MS40Myw0NDMuNDQsNzUyLjc0LDQxOC40OSw3NTIuMTksMzkzLjQ2eiBNNDcuOTQsNDExLjM4CgljMC43MywxMy40OCwwLjkyLDI3LjAyLDIuMzEsNDAuNDRjMS43NCwxNi43Niw0LjA5LDMzLjQ5LDYuODcsNTAuMTJjMy4yMSwxOS4yLDguMTYsMzguMDIsMTQuNDYsNTYuNDYKCWM2LjksMjAuMjEsMTUuMDMsMzkuODcsMjYuMTYsNTguMThjOC4wNSwxMy4yNCwxNi45OSwyNS43NSwyOC41NiwzNi4yM2M5LjExLDguMjUsMTkuMjYsMTQuNzUsMzAuOTYsMTguNTkKCWMxNy45NCw1Ljg5LDM1LjA1LDMuMzIsNTEuMjktNS43OWMxMi44Mi03LjE5LDIzLjc2LTE2LjgxLDM0LTI3LjI1YzE1Ljc1LTE2LjA1LDI5LjA1LTM0LjEsNDEuODItNTIuNDkKCWMxNC44Ni0yMS40LDI4Ljc3LTQzLjQ1LDQxLjYzLTY2LjEyYzkuMDYtMTUuOTgsMTguMjEtMzEuOTMsMjYuNTItNDguM2MxMS40Mi0yMi41MiwyMi4wNi00NS40NCwzMy4wNy02OC4xNwoJYzAuODEtMS42OCwwLjgyLTMuMTIsMC00Ljg1Yy03LjcxLTE2LjE5LTE1LjA3LTMyLjU1LTIzLjA1LTQ4LjZjLTEwLjI5LTIwLjY2LTIwLjg1LTQxLjItMzEuNjgtNjEuNTgKCWMtMTIuMTYtMjIuODgtMjUuNjItNDQuOTktNDAuMTQtNjYuNDZjLTEzLjUzLTIwLTI3Ljc4LTM5LjQyLTQ0LjM4LTU3LjAxYy0xMS4xOS0xMS44Ny0yMy4zOS0yMi40OC0zNy43OC0zMC4zNgoJYy05LjA0LTQuOTUtMTguNTctOC4yNC0yOS04Ljc5Yy0xNS4zMS0wLjgtMjguNzgsNC4wOC00MS4yMywxMi41OWMtMTEuODgsOC4xMy0yMS43MSwxOC4zLTMwLjI4LDI5Ljc2CglDOTUuMjEsMTg1LjEzLDg1LjYsMjA0LDc3LjkxLDIyMy45MWMtOC44MSwyMi44MS0xNS40NCw0Ni4yNC0yMC4xMiw3MC4yNGMtMy41OCwxOC4zNC02LjE1LDM2LjgxLTcuNzEsNTUuNDIKCUM0OC4zNiwzNzAuMTMsNDcuNzUsMzkwLjczLDQ3Ljk0LDQxMS4zOHoiLz4KPC9zdmc+Cg==" width="36" height="36" alt="MeTask"><div><span data-i18n="brand">AI 舰队手册</span><small>AI FLEET HANDBOOK</small></div></div><button class="language" id="language" type="button" lang="en" aria-label="Switch to English">English</button></header>
+<main id="main">
+<section id="intro" aria-labelledby="intro-title">
+<div class="hero"><div><div class="eyebrow" data-i18n="eyebrow">我的 AI 舰队 / 工作方式自测</div><h1 id="intro-title" data-i18n="headline">你的 AI，已经成队了吗？</h1><p data-i18n="lead">从用一个 AI，到带一支 AI 舰队。按最近一次真实工作作答，看看你现在走到了哪一步。测的是做法，不是能力。</p><button class="primary" id="start" type="button" data-i18n="start">开始自测 ↗</button><div class="meta" data-i18n="meta">9 道题 · 约 2 分钟 · 无需登录</div></div><div class="level-list" id="level-list" aria-label="五级工作方式"></div></div>
+</section>
+<section id="quiz" class="quiz" hidden aria-labelledby="question-title">
+<div class="progress-row"><span id="question-count"></span><span data-i18n="choose">选最接近实际做法的一项</span></div><div class="progress" role="progressbar" aria-label="答题进度" aria-valuemin="0" aria-valuemax="9" aria-valuenow="0"><div id="progress-fill"></div></div>
+<h2 id="question-title" tabindex="-1"></h2><p class="question-hint" data-i18n="hint">选已经在做的，暂时没做的留给下一步。</p><fieldset class="options" id="options" aria-labelledby="question-title"></fieldset>
+<div class="quiz-nav"><button class="secondary" id="back" type="button" data-i18n="back">上一题</button><button class="primary" id="next" type="button" disabled data-i18n="next">下一题 →</button></div><p class="question-footnote" data-i18n="session">可以返回修改。关闭页面后，答案不会保留。</p>
+</section>
+<section id="result" class="result" hidden aria-labelledby="result-title">
+<div class="result-grid"><div><div class="eyebrow" data-i18n="snapshot">你此刻的 AI 舰队</div><div class="level-number" id="result-level"></div><h1 id="result-title" tabindex="-1"></h1><p class="summary" id="result-summary"></p><div class="next-step"><h2 id="next-heading" data-i18n="nextStep">再往上一级，多做什么？</h2><p id="result-next"></p><div class="skill-links" id="skill-links"></div><p class="chapters"><span data-i18n="chapters">手册章节：</span><span id="chapter-links"></span></p></div><div class="result-actions"><button class="secondary" type="button" id="edit" data-i18n="edit">修改答案</button><button class="secondary" type="button" id="restart" data-i18n="restart">重新自测</button></div><p class="privacy" data-i18n="basis">这是按自述做法对照五级的结果。</p></div>
+<aside class="card-panel" aria-labelledby="card-title"><h2 id="card-title" data-i18n="share">把这一刻，存成一张卡片</h2><div class="formats" role="group" aria-label="卡片尺寸"><button id="portrait" type="button" aria-pressed="true" data-i18n="portrait">竖版 · 1080 × 1350</button><button id="landscape" type="button" aria-pressed="false" data-i18n="landscape">横版 · 1200 × 675</button></div><canvas id="share-card" width="1080" height="1350" role="img" aria-label="AI 舰队自测结果卡片"></canvas><button class="primary download" id="download" type="button" data-i18n="download">下载 PNG 卡片 ↓</button><p class="download-hint" data-i18n="downloadHint">竖版适合手机分享，横版适合横向信息流。</p><p id="download-status" class="status" role="status" aria-live="polite"></p></aside></div>
+</section>
+<noscript><p>请启用 JavaScript 后自测。计算只在你的浏览器内完成。Enable JavaScript to take the test. Answers stay in your browser.</p></noscript>
+</main>
+<details style="font-size:12px;color:var(--muted);margin-bottom:22px"><summary id="rubric-heading">怎样对照五级？</summary><p id="rubric"></p></details>
+<footer class="footer"><div><p data-i18n="privacy">答案不会离开你的浏览器。不上传、不存 cookie、无统计脚本。</p><p class="lab" data-i18n="lab">元任务实验室 MeTask AI Lab</p></div></footer>
+</div>
+<script id="question-data" type="application/json">
+{
+  "schemaVersion": 1,
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "maxScore": 36,
+  "rubric": {
+    "zh": "这是对实际做法的自测，不是能力认证。每题0至4分，总分36分。各级分数线是关键做法的最低分之和；总分高不能替代关键做法。请选目前经常做到的一项。",
+    "en": "This checks your current working practices; it is not a certification. Each answer scores 0–4, for a total of 36. Each threshold is the sum of its required practices' minimum scores; a high total cannot replace those practices. Choose what you regularly do today."
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "title": {
+        "zh": "一件活开始时，你怎样安排AI的角色？",
+        "en": "How do you assign AI roles when work starts?"
+      },
+      "options": [
+        {
+          "id": "q1-0",
+          "score": 0,
+          "label": {
+            "zh": "交给一个AI，不分角色。",
+            "en": "I give it to one AI without assigning roles."
+          }
+        },
+        {
+          "id": "q1-1",
+          "score": 1,
+          "label": {
+            "zh": "让一个AI在同一轮里扮演几个角色。",
+            "en": "I ask one AI to take several roles in one round."
+          }
+        },
+        {
+          "id": "q1-2",
+          "score": 2,
+          "label": {
+            "zh": "让一个AI按角色分轮做，各轮交付写清楚。",
+            "en": "One AI works in separate role-based rounds, each with a defined output."
+          }
+        },
+        {
+          "id": "q1-3",
+          "score": 3,
+          "label": {
+            "zh": "给几个AI分岗位，各自有职责和交付。",
+            "en": "Several AIs have assigned roles, responsibilities and outputs."
+          }
+        },
+        {
+          "id": "q1-4",
+          "score": 4,
+          "label": {
+            "zh": "岗位持续保留，负责什么、交给谁都有记录。",
+            "en": "Roles persist, with recorded responsibilities and handoffs."
+          }
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "title": {
+        "zh": "一项工作要经过几步时，AI之间怎样接力？",
+        "en": "How do AIs hand work over across several steps?"
+      },
+      "options": [
+        {
+          "id": "q2-0",
+          "score": 0,
+          "label": {
+            "zh": "一个AI从头做到尾。",
+            "en": "One AI handles everything."
+          }
+        },
+        {
+          "id": "q2-1",
+          "score": 1,
+          "label": {
+            "zh": "我临时把内容转给另一个AI。",
+            "en": "I pass content to another AI as needed."
+          }
+        },
+        {
+          "id": "q2-2",
+          "score": 2,
+          "label": {
+            "zh": "几个AI按写好的步骤接力，前一步交付是后一步输入。",
+            "en": "Several AIs follow written steps; each output feeds the next step."
+          }
+        },
+        {
+          "id": "q2-3",
+          "score": 3,
+          "label": {
+            "zh": "每一步还有交付标准和接手人。",
+            "en": "Each step also has an output standard and a named receiver."
+          }
+        },
+        {
+          "id": "q2-4",
+          "score": 4,
+          "label": {
+            "zh": "交接会核对实际状态，不合格就退回对应步骤。",
+            "en": "Handoffs check the actual state and return failed work to the right step."
+          }
+        }
+      ]
+    },
+    {
+      "id": "q3",
+      "title": {
+        "zh": "你怎样把不同厂商的AI用到同一项工作里？",
+        "en": "How do you use AIs from different providers on the same work?"
+      },
+      "options": [
+        {
+          "id": "q3-0",
+          "score": 0,
+          "label": {
+            "zh": "只用一个AI。",
+            "en": "I use one AI."
+          }
+        },
+        {
+          "id": "q3-1",
+          "score": 1,
+          "label": {
+            "zh": "用几个AI，但来自同一家厂商。",
+            "en": "I use several AIs from the same provider."
+          }
+        },
+        {
+          "id": "q3-2",
+          "score": 2,
+          "label": {
+            "zh": "用不同厂商的AI，但各做各的活。",
+            "en": "I use different providers, but on separate work."
+          }
+        },
+        {
+          "id": "q3-3",
+          "score": 3,
+          "label": {
+            "zh": "不同厂商的AI在同一项工作里分工、交接。",
+            "en": "AIs from different providers divide and hand over the same work."
+          }
+        },
+        {
+          "id": "q3-4",
+          "score": 4,
+          "label": {
+            "zh": "按任务分派不同厂商的AI，分工和交接有记录。",
+            "en": "I assign AIs from different providers by task, recording roles and handoffs."
+          }
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "title": {
+        "zh": "AI交回的东西，由谁来审？",
+        "en": "Who reviews an AI's output?"
+      },
+      "options": [
+        {
+          "id": "q4-0",
+          "score": 0,
+          "label": {
+            "zh": "通常直接用。",
+            "en": "I usually use it directly."
+          }
+        },
+        {
+          "id": "q4-1",
+          "score": 1,
+          "label": {
+            "zh": "作者自查，或只由我来审。",
+            "en": "The author checks itself, or I am the only reviewer."
+          }
+        },
+        {
+          "id": "q4-2",
+          "score": 2,
+          "label": {
+            "zh": "另一个AI独立审，但未固定跨厂商。",
+            "en": "Another AI reviews independently, without a cross-provider rule."
+          }
+        },
+        {
+          "id": "q4-3",
+          "score": 3,
+          "label": {
+            "zh": "另一家厂商的AI独立核对要求和交付，作者不验收自己。",
+            "en": "An AI from another provider independently checks requirements and output; authors do not accept their own work."
+          }
+        },
+        {
+          "id": "q4-4",
+          "score": 4,
+          "label": {
+            "zh": "跨厂商独立审后，修改过的交付还要复核。",
+            "en": "After independent cross-provider review, revised output is checked again."
+          }
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "title": {
+        "zh": "一项工作结束后，岗位和部门怎样处理？",
+        "en": "What happens to roles and departments when a task ends?"
+      },
+      "options": [
+        {
+          "id": "q5-0",
+          "score": 0,
+          "label": {
+            "zh": "没有分岗位或部门。",
+            "en": "I do not use roles or departments."
+          }
+        },
+        {
+          "id": "q5-1",
+          "score": 1,
+          "label": {
+            "zh": "临时分工，做完就散。",
+            "en": "Assignments end when the task ends."
+          }
+        },
+        {
+          "id": "q5-2",
+          "score": 2,
+          "label": {
+            "zh": "会复用角色说明，但部门不常设。",
+            "en": "I reuse role descriptions, without standing departments."
+          }
+        },
+        {
+          "id": "q5-3",
+          "score": 3,
+          "label": {
+            "zh": "常设部门有固定职责和交接位置，下一项工作接着用。",
+            "en": "Standing departments keep their responsibilities and handoff locations for the next task."
+          }
+        },
+        {
+          "id": "q5-4",
+          "score": 4,
+          "label": {
+            "zh": "常设部门按实际工作提出新岗位，由审批表授权的岗位决定是否增设。",
+            "en": "Standing departments propose roles based on the work. The role named in the approval table decides whether to add them."
+          }
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "title": {
+        "zh": "换窗口或重启后，怎样接上工作？",
+        "en": "How do you resume work after a restart or a new window?"
+      },
+      "options": [
+        {
+          "id": "q6-0",
+          "score": 0,
+          "label": {
+            "zh": "靠我重新讲一遍。",
+            "en": "I explain everything again."
+          }
+        },
+        {
+          "id": "q6-1",
+          "score": 1,
+          "label": {
+            "zh": "找聊天记录，临时整理。",
+            "en": "I reconstruct it from chat history."
+          }
+        },
+        {
+          "id": "q6-2",
+          "score": 2,
+          "label": {
+            "zh": "有项目文件，但何时读写没有固定做法。",
+            "en": "Project files exist, but reading and updating them is ad hoc."
+          }
+        },
+        {
+          "id": "q6-3",
+          "score": 3,
+          "label": {
+            "zh": "固定做了重启先读、收工先写中的一个动作。",
+            "en": "I consistently do one of these: read before resuming, or write before stopping."
+          }
+        },
+        {
+          "id": "q6-4",
+          "score": 4,
+          "label": {
+            "zh": "重启先读项目卡和最新交接、核对实际状态；收工先写交接，决定另有记录。",
+            "en": "Before resuming, AIs read the project card and latest handoff and verify the actual state; before stopping, they write a handoff. Decisions are recorded."
+          }
+        }
+      ]
+    },
+    {
+      "id": "q7",
+      "title": {
+        "zh": "规则没写到的情况，成员怎样判断？",
+        "en": "How do members decide when rules do not cover a situation?"
+      },
+      "options": [
+        {
+          "id": "q7-0",
+          "score": 0,
+          "label": {
+            "zh": "临时决定，没有共同依据。",
+            "en": "They decide ad hoc, without shared principles."
+          }
+        },
+        {
+          "id": "q7-1",
+          "score": 1,
+          "label": {
+            "zh": "通常由我逐件答复。",
+            "en": "I usually answer each case."
+          }
+        },
+        {
+          "id": "q7-2",
+          "score": 2,
+          "label": {
+            "zh": "有共同原则，但只写了口号。",
+            "en": "Shared principles exist, but only as slogans."
+          }
+        },
+        {
+          "id": "q7-3",
+          "score": 3,
+          "label": {
+            "zh": "写了做什么、不做什么，条款还在等审核或决定。",
+            "en": "The principles specify actions and limits and are awaiting review or a decision."
+          }
+        },
+        {
+          "id": "q7-4",
+          "score": 4,
+          "label": {
+            "zh": "成员提议并经过两级审核，人定方向，有授权的岗位定行为条款，成员据此做实际判断。",
+            "en": "Members propose values for two rounds of review. The human sets direction, authorized roles decide the rules for putting it into practice, and members use those rules in decisions."
+          }
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "title": {
+        "zh": "人在这支团队里怎样参与？",
+        "en": "How does a human take part in the team?"
+      },
+      "options": [
+        {
+          "id": "q8-0",
+          "score": 0,
+          "label": {
+            "zh": "发出问题，收到答案。",
+            "en": "I ask questions and receive answers."
+          }
+        },
+        {
+          "id": "q8-1",
+          "score": 1,
+          "label": {
+            "zh": "逐步指挥，所有事都回来问我。",
+            "en": "I direct each step; every decision comes back to me."
+          }
+        },
+        {
+          "id": "q8-2",
+          "score": 2,
+          "label": {
+            "zh": "有些事授权给AI，但没有写清谁定什么。",
+            "en": "I delegate some decisions, without a written division of authority."
+          }
+        },
+        {
+          "id": "q8-3",
+          "score": 3,
+          "label": {
+            "zh": "写清了谁定什么，但人没有列进组织分工。",
+            "en": "Decision rights are written down, but the human is not included in the organization."
+          }
+        },
+        {
+          "id": "q8-4",
+          "score": 4,
+          "label": {
+            "zh": "人列在组织里面，管方向、对外承诺、花钱和删东西，各岗位的授权范围写清楚。",
+            "en": "The human is part of the organization and decides direction, external commitments, spending and deletion. Each role has clear authority."
+          }
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "title": {
+        "zh": "你怎样确认一项工作真的做完了？",
+        "en": "How do you confirm that work is done?"
+      },
+      "options": [
+        {
+          "id": "q9-0",
+          "score": 0,
+          "label": {
+            "zh": "AI说完成了，就结束。",
+            "en": "I stop when the AI says it is done."
+          }
+        },
+        {
+          "id": "q9-1",
+          "score": 1,
+          "label": {
+            "zh": "我看一遍结果。",
+            "en": "I read through the result."
+          }
+        },
+        {
+          "id": "q9-2",
+          "score": 2,
+          "label": {
+            "zh": "开始前写交付要求，交回时逐项核对。",
+            "en": "I write output requirements before work and check each on delivery."
+          }
+        },
+        {
+          "id": "q9-3",
+          "score": 3,
+          "label": {
+            "zh": "把完成、交付和合格分开检查，要求对应证据。",
+            "en": "I distinguish completion, delivery and acceptance, checking evidence for each."
+          }
+        },
+        {
+          "id": "q9-4",
+          "score": 4,
+          "label": {
+            "zh": "核对实际结果，记录未完成和待人决定的事，下一位能接上。",
+            "en": "I verify the actual result and record unfinished work and pending human decisions for the next person."
+          }
+        }
+      ]
+    }
+  ],
+  "levels": [
+    {
+      "level": 1,
+      "minScore": 0,
+      "requires": [],
+      "title": {
+        "zh": "用一个AI",
+        "en": "Working with one AI"
+      },
+      "card": {
+        "zh": "我与AI一起，把一件真实的活做下去。",
+        "en": "I work with AI on real tasks."
+      },
+      "summary": {
+        "zh": "当前做法以一个AI接下整件活为主。",
+        "en": "Your current practice centers on one AI handling the work."
+      },
+      "next": {
+        "zh": "挑一件真实的活，让一个AI分角色做，写清每个角色交什么。",
+        "en": "Choose a real task. Give one AI distinct roles and define each role's output."
+      },
+      "skills": [
+        "fleet-setup",
+        "fleet-taskbook"
+      ],
+      "chapters": [
+        1,
+        2
+      ]
+    },
+    {
+      "level": 2,
+      "minScore": 1,
+      "requires": [
+        {
+          "question": "q1",
+          "minScore": 1
+        }
+      ],
+      "title": {
+        "zh": "按角色分开干活",
+        "en": "Working in separate roles"
+      },
+      "card": {
+        "zh": "我的工作已经按角色分开做。",
+        "en": "My work is already split by role."
+      },
+      "summary": {
+        "zh": "你已开始按角色安排工作，角色之间的接力还可写得更清楚。",
+        "en": "You assign work by role; the handoffs between roles can become clearer."
+      },
+      "next": {
+        "zh": "让几个AI按流程接力，写清每一步的输入、交付和接手人。",
+        "en": "Have several AIs follow a workflow. Define each step's input, output and receiver."
+      },
+      "skills": [
+        "fleet-taskbook",
+        "fleet-setup"
+      ],
+      "chapters": [
+        1,
+        2
+      ]
+    },
+    {
+      "level": 3,
+      "minScore": 4,
+      "requires": [
+        {
+          "question": "q1",
+          "minScore": 2
+        },
+        {
+          "question": "q2",
+          "minScore": 2
+        }
+      ],
+      "title": {
+        "zh": "几个AI按流程接力",
+        "en": "Several AIs following a workflow"
+      },
+      "card": {
+        "zh": "前一步的交付，接着成为下一步的输入。",
+        "en": "Each output becomes the input for the next step."
+      },
+      "summary": {
+        "zh": "几个AI已经按步骤接力，前一步的交付会交给下一步。",
+        "en": "Several AIs pass work along defined steps, using each other's outputs."
+      },
+      "next": {
+        "zh": "把同一项工作分给不同厂商的AI，让另一家独立审，作者不验收自己；完成、交付、合格分开检查。",
+        "en": "Divide the same work across providers. Have another provider review independently; authors do not accept their own work. Check completion, delivery and acceptance separately."
+      },
+      "skills": [
+        "fleet-dispatch",
+        "fleet-taskbook"
+      ],
+      "chapters": [
+        2
+      ]
+    },
+    {
+      "level": 4,
+      "minScore": 13,
+      "requires": [
+        {
+          "question": "q1",
+          "minScore": 2
+        },
+        {
+          "question": "q2",
+          "minScore": 2
+        },
+        {
+          "question": "q3",
+          "minScore": 3
+        },
+        {
+          "question": "q4",
+          "minScore": 3
+        },
+        {
+          "question": "q9",
+          "minScore": 3
+        }
+      ],
+      "title": {
+        "zh": "几家厂商的AI分工、互相审",
+        "en": "AIs from different providers divide and review work"
+      },
+      "card": {
+        "zh": "完成、交付和合格，分别核对证据。",
+        "en": "I check evidence for completion, delivery and acceptance separately."
+      },
+      "summary": {
+        "zh": "不同厂商的AI在同一项工作里分工，并由另一家独立审。",
+        "en": "AIs from different providers divide the same work and review it independently."
+      },
+      "next": {
+        "zh": "保留常设部门；重启先读、收工先写；核对实际结果，记下没做完和待人定的事；把人的职责列进组织，按审批表定下落实价值观的行为条款。",
+        "en": "Keep standing departments. Read before resuming and write before stopping. Verify actual results and record unfinished work and pending human decisions. Include the human’s responsibilities in the organization and use the approval table to decide rules for putting values into practice."
+      },
+      "skills": [
+        "fleet-chart",
+        "fleet-memory",
+        "fleet-setup",
+        "fleet-values"
+      ],
+      "chapters": [
+        1,
+        3,
+        5
+      ]
+    },
+    {
+      "level": 5,
+      "minScore": 29,
+      "requires": [
+        {
+          "question": "q1",
+          "minScore": 2
+        },
+        {
+          "question": "q2",
+          "minScore": 2
+        },
+        {
+          "question": "q3",
+          "minScore": 3
+        },
+        {
+          "question": "q4",
+          "minScore": 3
+        },
+        {
+          "question": "q5",
+          "minScore": 3
+        },
+        {
+          "question": "q6",
+          "minScore": 4
+        },
+        {
+          "question": "q7",
+          "minScore": 4
+        },
+        {
+          "question": "q8",
+          "minScore": 4
+        },
+        {
+          "question": "q9",
+          "minScore": 4
+        }
+      ],
+      "title": {
+        "zh": "常设的 AI 舰队",
+        "en": "A standing AI fleet"
+      },
+      "card": {
+        "zh": "有部门、有记忆、有价值观，人在组织里面。",
+        "en": "Departments, memory and values stay in place, with the human inside the organization."
+      },
+      "summary": {
+        "zh": "常设的 AI 舰队：有部门、有记忆、有价值观，人在组织里面。",
+        "en": "A standing AI fleet with departments, memory and values, with the human inside the organization."
+      },
+      "next": {
+        "zh": "继续核对实际交付和交接，按真实工作调整岗位、记忆和规则。",
+        "en": "Keep checking actual outputs and handoffs. Adjust roles, memory and rules to the work."
+      },
+      "skills": [
+        "fleet-memory",
+        "fleet-precheck",
+        "fleet-values"
+      ],
+      "chapters": [
+        3,
+        4,
+        5
+      ]
+    }
+  ]
+}
+</script>
+<script id="scoring-engine">
+(function (root, factory) {
+  'use strict';
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.FleetScoring = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+
+  // All classification thresholds and required practices come from questions.json.
+  // Language only changes labels, never answer IDs or classification.
+  // Card traits describe reported practices; they never change level or score.
+  function cardTraits(scores, level) {
+    const traits = [];
+    if (scores.q4 >= 2) traits.push('review');
+    if (scores.q6 === 4) traits.push('memory');
+    if (scores.q7 === 4) traits.push('values');
+    if (scores.q3 >= 2) traits.push('providers');
+    if (scores.q5 >= 3) traits.push('departments');
+    if (scores.q8 === 4) traits.push('human');
+    if (scores.q2 >= 2) traits.push('workflow');
+    if (scores.q1 >= 1) traits.push('roles');
+    if (scores.q9 >= 2) traits.push('delivery');
+    if (scores.q6 === 3) traits.push('handoff');
+    if (scores.q6 === 2) traits.push('files');
+    if (!traits.length) traits.push(scores.q3 === 0 ? 'one-ai' : 'several-ais');
+    // Remove practices already stated in that level's bilingual summary.
+    // Keep the original shortlist; do not fill removed slots with extra traits.
+    const described = {
+      1: ['one-ai'],
+      2: ['roles'],
+      3: ['workflow', 'several-ais'],
+      4: ['providers', 'review', 'roles'],
+      5: ['departments', 'memory', 'values', 'human']
+    };
+    return traits.slice(0, 3).filter(function (trait) { return !described[level].includes(trait); });
+  }
+
+  function evaluate(data, answers) {
+    const validContainer = answers !== null && typeof answers === 'object' && !Array.isArray(answers);
+    const source = validContainer ? answers : {};
+    const missing = [];
+    const errors = [];
+    const scores = {};
+    let score = 0;
+    let answered = 0;
+    if (!validContainer && answers !== undefined && answers !== null) errors.push({question: null, code: 'invalid-answers'});
+    const known = new Set(data.questions.map(function (question) { return question.id; }));
+    Object.keys(source).forEach(function (id) {
+      if (!known.has(id)) errors.push({question: id, code: 'unknown-question'});
+    });
+    data.questions.forEach(function (question) {
+      const hasAnswer = Object.prototype.hasOwnProperty.call(source, question.id);
+      const answer = hasAnswer ? source[question.id] : undefined;
+      if (answer === undefined || answer === null || answer === '') {
+        missing.push(question.id);
+        return;
+      }
+      const option = question.options.find(function (candidate) { return candidate.id === answer; });
+      if (!option) {
+        errors.push({question: question.id, code: 'invalid-option'});
+        return;
+      }
+      scores[question.id] = option.score;
+      score += option.score;
+      answered += 1;
+    });
+    const complete = missing.length === 0 && errors.length === 0;
+    if (!complete) {
+      return {complete: false, status: errors.length ? 'invalid' : 'incomplete', level: null, score: score, answered: answered, missing: missing, errors: errors, thresholdLevel: null, unmetGates: [], traits: []};
+    }
+    const levels = data.levels.slice().sort(function (a, b) { return a.level - b.level; });
+    let level = null;
+    let thresholdLevel = null;
+    const unmetGates = [];
+    levels.forEach(function (candidate) {
+      if (score < candidate.minScore) return;
+      thresholdLevel = candidate.level;
+      const unmet = candidate.requires.filter(function (gate) { return scores[gate.question] < gate.minScore; });
+      if (unmet.length === 0) level = candidate.level;
+      else unmetGates.push({level: candidate.level, questions: unmet.map(function (gate) { return gate.question; })});
+    });
+    return {complete: true, status: 'complete', level: level, score: score, answered: answered, missing: [], errors: [], thresholdLevel: thresholdLevel, unmetGates: unmetGates, traits: cardTraits(scores, level)};
+  }
+
+  return Object.freeze({evaluate: evaluate});
+});
+</script>
+<script id="app">
+'use strict';
+(() => {
+  const data = JSON.parse(document.getElementById('question-data').textContent);
+  const $ = id => document.getElementById(id);
+  const state = { lang: 'zh', screen: 'intro', index: 0, answers: {}, format: 'portrait', result: null };
+  const traitLabels = {
+    review:{zh:'写审分开',en:'Separate writing and review'},
+    memory:{zh:'有记忆',en:'Work memory'},
+    values:{zh:'有价值观',en:'Shared values'},
+    providers:{zh:'多家厂商',en:'Multiple providers'},
+    departments:{zh:'常设部门',en:'Standing departments'},
+    human:{zh:'人在组织里',en:'Human in the team'},
+    workflow:{zh:'按流程接力',en:'Workflow handoffs'},
+    roles:{zh:'按角色分工',en:'Defined roles'},
+    delivery:{zh:'有交付要求',en:'Defined outputs'},
+    handoff:{zh:'有交接习惯',en:'Handoff habit'},
+    files:{zh:'有项目文件',en:'Project files'},
+    'one-ai':{zh:'一个 AI',en:'One AI'},
+    'several-ais':{zh:'多个 AI',en:'Several AIs'}
+  };
+  const copy = {
+    zh: { lab:'元任务实验室 MeTask AI Lab',brand:'AI 舰队手册',eyebrow:'我的 AI 舰队 / 工作方式自测',headline:'你的 AI，已经成队了吗？',lead:'从用一个 AI，到带一支 AI 舰队。按最近一次真实工作作答，看看你现在走到了哪一步。测的是做法，不是能力。',start:'开始自测 ↗',meta:'9 道题 · 约 2 分钟 · 无需登录',choose:'选最接近实际做法的一项',hint:'选已经在做的，暂时没做的留给下一步。',back:'上一题',next:'下一题 →',finish:'查看我的级别 ↗',session:'可以返回修改。关闭页面后，答案不会保留。',snapshot:'你此刻的 AI 舰队',nextStep:'再往上一级，多做什么？',keepGoing:'接下来，把这套做法用在真实工作里',chapters:'手册章节：',edit:'修改答案',restart:'重新自测',basis:'这是按自述做法对照五级的结果。',share:'把这一刻，存成一张卡片',portrait:'竖版 · 1080 × 1350',landscape:'横版 · 1200 × 675',download:'下载 PNG 卡片 ↓',downloadHint:'竖版适合手机分享，横版适合横向信息流。',privacy:'答案不会离开你的浏览器。不上传、不存 cookie、无统计脚本。',count:(n,total)=>`第 ${n} / ${total} 题`,downloaded:'卡片已生成。若手机未下载，可长按下方图片保存。',downloadFailed:'浏览器未能生成下载，请换一个浏览器重试。',progress:'答题进度',card:'AI 舰队自测结果卡片',format:'卡片尺寸' },
+    en: { lab:'MeTask AI Lab',brand:'AI Fleet Handbook',eyebrow:'My AI fleet / Work habits check',headline:'How does your AI team work?',lead:'From using one AI to working with an AI fleet. Answer based on a recent real task to see where you are today. It measures how you work, not what your AI can do.',start:'Start the check ↗',meta:'9 questions · About 2 minutes · No sign-in',choose:'Choose what you actually do',hint:'Choose what you do today. Leave plans for your next step.',back:'Back',next:'Next →',finish:'See my level ↗',session:'You can go back and change answers. Closing the page clears them.',snapshot:'Your AI fleet today',nextStep:'What does the next level take?',keepGoing:'Next, put these practices to work',chapters:'Handbook chapters: ',edit:'Edit answers',restart:'Start again',basis:'Your result matches your reported habits to the five levels.',share:'Save this moment as a card',portrait:'Portrait · 1080 × 1350',landscape:'Landscape · 1200 × 675',download:'Download PNG card ↓',downloadHint:'Portrait works well on a phone. Landscape fits a wide feed.',privacy:'Answers stay in your browser. No uploads, cookies or analytics.',count:(n,total)=>`Question ${n} of ${total}`,downloaded:'Card created. If it did not download on your phone, press and hold the image below to save it.',downloadFailed:'This browser could not create a download. Please try another browser.',progress:'Question progress',card:'My AI fleet result card',format:'Card dimensions' }
+  };
+  const chapterFiles = ['01-what-is-an-ai-fleet.md', '02-write-and-review.md', '03-memory.md', '04-decisions.md', '05-values.md'];
+  const t = key => copy[state.lang][key];
+  const local = value => typeof value === 'string' ? value : value[state.lang];
+  function topFocus(id) { $(id).focus({preventScroll:true}); window.scrollTo({top:0,behavior:'instant'}); }
+  function renderCommon() {
+    document.documentElement.lang = state.lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = state.lang === 'zh' ? '我的 AI 舰队 · AI Fleet Handbook' : 'My AI Fleet · AI Fleet Handbook';
+    document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+    $('language').textContent = state.lang === 'zh' ? 'English' : '中文';
+    $('language').lang = state.lang === 'zh' ? 'en' : 'zh-CN';
+    $('language').setAttribute('aria-label',state.lang === 'zh' ? 'Switch to English' : '切换为中文');
+    $('level-list').setAttribute('aria-label',state.lang === 'zh' ? '五级工作方式' : 'Five ways of working');
+    document.querySelector('.progress').setAttribute('aria-label',t('progress'));
+    document.querySelector('.formats').setAttribute('aria-label',t('format'));
+    $('share-card').setAttribute('aria-label',t('card'));
+    $('rubric-heading').textContent=state.lang==='zh'?'怎样对照五级？':'How are levels matched?';
+    $('rubric').textContent=local(data.rubric);
+    for (const id of ['intro','quiz','result']) $(id).hidden = state.screen !== id;
+  }
+  function renderIntro() {
+    $('level-list').replaceChildren(...data.levels.map(level => {
+      const row = document.createElement('div'); row.className = 'level-row';
+      const code = document.createElement('b'); code.textContent = `L${level.level}`;
+      const label = document.createElement('span'); label.textContent = local(level.title);
+      row.append(code,label); return row;
+    }));
+  }
+  function renderQuestion() {
+    const q = data.questions[state.index];
+    $('question-count').textContent = t('count')(state.index+1,data.questions.length);
+    $('question-title').textContent = local(q.title);
+    $('progress-fill').style.width = `${Object.keys(state.answers).length/data.questions.length*100}%`;
+    const progress = document.querySelector('.progress');
+    progress.setAttribute('aria-valuemax',data.questions.length);
+    progress.setAttribute('aria-valuenow',Object.keys(state.answers).length);
+    $('options').replaceChildren(...q.options.map(option => {
+      const label = document.createElement('label'); label.className = 'option';
+      const input = document.createElement('input'); input.type='radio';input.name=q.id;input.value=option.id;
+      input.checked = state.answers[q.id] === option.id;
+      input.addEventListener('change',()=>{state.answers[q.id]=option.id;$('next').disabled=false;
+        $('progress-fill').style.width=`${Object.keys(state.answers).length/data.questions.length*100}%`;
+        progress.setAttribute('aria-valuenow',Object.keys(state.answers).length);});
+      const span = document.createElement('span'); span.textContent=local(option.label);
+      label.append(input,span);return label;
+    }));
+    $('back').disabled = state.index===0;
+    $('next').disabled = !state.answers[q.id];
+    $('next').textContent = t(state.index===data.questions.length-1?'finish':'next');
+  }
+  function renderResult() {
+    state.result = FleetScoring.evaluate(data,state.answers);
+    if (!state.result.complete) { state.screen='quiz';state.index=data.questions.findIndex(q=>!state.answers[q.id]);render();return; }
+    const level = data.levels.find(item=>item.level===state.result.level);
+    $('result-level').textContent=`L${level.level}`;
+    $('result-title').textContent=local(level.title);$('result-summary').textContent=local(level.summary);
+    $('next-heading').textContent=t(level.level===5?'keepGoing':'nextStep');
+    $('result-next').textContent=local(level.next);
+    $('chapter-links').replaceChildren(...level.chapters.map(chapter=>{
+      const a=document.createElement('a');a.textContent=state.lang==='zh'?`第${chapter}章`:`Chapter ${chapter}`;
+      a.href=`../handbook/${state.lang}/${chapterFiles[chapter-1]}`;return a;
+    }));
+    $('skill-links').replaceChildren(...level.skills.map(skill=>{
+      const a=document.createElement('a');a.textContent=skill;a.href=`../skills/${skill}/${state.lang==='zh'?'SKILL.zh.md':'SKILL.md'}`;return a;
+    }));
+    drawCard(level);
+  }
+  function render() { renderCommon();renderIntro();if(state.screen==='quiz')renderQuestion();if(state.screen==='result')renderResult(); }
+  $('language').addEventListener('click',()=>{state.lang=state.lang==='zh'?'en':'zh';$('download-status').replaceChildren();render();});
+  $('start').addEventListener('click',()=>{state.screen='quiz';render();topFocus('question-title');});
+  $('back').addEventListener('click',()=>{if(state.index>0){state.index--;render();topFocus('question-title');}});
+  $('next').addEventListener('click',()=>{
+    if(!state.answers[data.questions[state.index].id])return;
+    if(state.index<data.questions.length-1){state.index++;render();topFocus('question-title');}
+    else{state.screen='result';render();topFocus('result-title');}
+  });
+  $('edit').addEventListener('click',()=>{state.screen='quiz';state.index=0;render();topFocus('question-title');});
+  $('restart').addEventListener('click',()=>{state.answers={};state.result=null;state.index=0;state.screen='intro';$('download-status').replaceChildren();render();topFocus('intro-title');});
+  for(const format of ['portrait','landscape'])$(format).addEventListener('click',()=>{state.format=format;$('download-status').replaceChildren();renderResult();});
+  // Inline copies of the official VI tokens keep this HTML usable on its own.
+  const styles = getComputedStyle(document.documentElement);
+  const vi = Object.fromEntries(['brand-deep','brand-primary','brand-accent','brand-soft','text','text-2','muted','canvas','panel','line-strong','peer-light'].map(name=>[name,styles.getPropertyValue(`--${name}`).trim()]));
+  const font = () => styles.getPropertyValue(state.lang==='zh'?'--font-zh':'--font-en').trim();
+  function text(ctx,value,x,y,size,weight=500,color=vi['brand-deep']) { ctx.fillStyle=color;ctx.font=`${weight} ${size}px ${font()}`;ctx.fillText(value,x,y); }
+  function fittedText(ctx,value,x,y,width,size,weight=650,color=vi['text']) {
+    while(size>18){ctx.font=`${weight} ${size}px ${font()}`;if(ctx.measureText(value).width<=width)break;size-=1;}
+    text(ctx,value,x,y,size,weight,color);
+  }
+  function wrap(ctx,value,width) {
+    const tokens=value.match(/[A-Za-z0-9]+(?:['’\-][A-Za-z0-9]+)*[,.!?;:]?|\s+|[^\x00-\x7F]|./gu)||[];
+    const lines=[];let line='';
+    for(const token of tokens){if(ctx.measureText(line+token).width>width&&line){lines.push(line.trim());line=token.trimStart();}else line+=token;}
+    if(line.trim())lines.push(line.trim());return lines;
+  }
+  function paragraph(ctx,value,x,y,width,size,lineHeight,maxLines,weight=650,color=vi['brand-deep']) {
+    let lines;
+    do{ctx.font=`${weight} ${size}px ${font()}`;lines=value.split('\n').flatMap(part=>wrap(ctx,part,width));if(lines.length<=maxLines)break;size-=2;}while(size>24);
+    ctx.fillStyle=color;lines.forEach((line,i)=>ctx.fillText(line,x,y+i*lineHeight));
+  }
+  function rail(ctx,x,y,level,spacing=66) {
+    ctx.lineWidth=2;ctx.strokeStyle=vi['peer-light'];ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+spacing*4,y);ctx.stroke();
+    for(let i=1;i<=5;i++){ctx.beginPath();ctx.fillStyle=i===level?vi['brand-primary']:i<level?vi['brand-deep']:vi['peer-light'];ctx.arc(x+(i-1)*spacing,y,i===level?10:6,0,Math.PI*2);ctx.fill();}
+  }
+  function drawCard(level) {
+    const canvas=$('share-card');const wide=state.format==='landscape';canvas.width=wide?1200:1080;canvas.height=wide?675:1350;
+    const ctx=canvas.getContext('2d');ctx.fillStyle=vi['canvas'];ctx.fillRect(0,0,canvas.width,canvas.height);
+    const title=local(level.title),sentence=local(level.card);
+    const traits=state.result.traits.map(id=>local(traitLabels[id])).join(' · ');
+    const cta=state.lang==='zh'?'九道题，看看你现在怎么分工':'Nine questions on how you work';
+    const m=wide?70:86;ctx.fillStyle=vi['brand-primary'];ctx.fillRect(m,wide?40:66,38,5);
+    if(state.lang==='zh'){
+      text(ctx,'AI 舰队手册',m,wide?93:126,wide?28:34,750);text(ctx,'AI Fleet Handbook',m,wide?125:170,wide?22:27,500);
+    }else{
+      text(ctx,'AI Fleet Handbook',m,wide?110:148,wide?28:34,750);
+    }
+    // Unmodified official metask-logo.svg, embedded in the page header for offline use.
+    const logo=$('metask-logo'),logoSize=wide?56:72;
+    if(logo.complete&&logo.naturalWidth)ctx.drawImage(logo,canvas.width-m-logoSize,wide?63:92,logoSize,logoSize);
+    ctx.strokeStyle=vi['peer-light'];ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(m,wide?153:212);ctx.lineTo(canvas.width-m,wide?153:212);ctx.stroke();
+    if(wide){
+      text(ctx,`L${level.level}`,m-8,411,234,800);rail(ctx,m+6,477,level.level,65);
+      text(ctx,state.lang==='zh'?'我的 AI 舰队':'MY AI FLEET',430,211,20,650,vi['text-2']);
+      paragraph(ctx,title,430,267,700,state.lang==='zh'?43:40,50,3);
+      paragraph(ctx,sentence,430,425,700,27,35,2,500,vi['text-2']);
+      if(traits)fittedText(ctx,traits,430,505,700,27);
+      ctx.beginPath();ctx.moveTo(m,551);ctx.lineTo(1130,551);ctx.stroke();
+      text(ctx,t('lab'),m,640,22,650);
+      text(ctx,cta,640,590,26,650);fittedText(ctx,'github.com/chenyuwang166-oss/fleet-handbook',640,634,490,25,500,vi['text-2']);
+    }else{
+      text(ctx,state.lang==='zh'?'我的 AI 舰队':'MY AI FLEET',m,294,26,650,vi['text-2']);
+      text(ctx,`L${level.level}`,m-12,610,310,800);
+      paragraph(ctx,title,m,737,908,state.lang==='zh'?54:50,64,3);
+      paragraph(ctx,sentence,m,926,908,33,44,2,500,vi['text-2']);
+      if(traits)fittedText(ctx,traits,m,1010,908,33);
+      rail(ctx,m+8,1061,level.level,89);
+      ctx.beginPath();ctx.moveTo(m,1127);ctx.lineTo(994,1127);ctx.stroke();
+      text(ctx,cta,m,1182,32,650);text(ctx,t('lab'),m,1226,28,650);
+      fittedText(ctx,'github.com/chenyuwang166-oss/fleet-handbook',m,1270,908,28,500,vi['text-2']);
+    }
+    canvas.setAttribute('aria-label',`${t('card')}: L${level.level}. ${title}. ${sentence}${traits?' '+traits+'.':''} ${cta} ${t('lab')}`);
+    for(const f of ['portrait','landscape'])$(f).setAttribute('aria-pressed',String(state.format===f));
+  }
+  $('download').addEventListener('click',()=>{
+    const canvas=$('share-card');const filename=`my-ai-fleet-L${state.result.level}-${state.lang}-${canvas.width}x${canvas.height}.png`;
+    try{
+      canvas.toBlob(blob=>{
+        if(!blob){$('download-status').textContent=t('downloadFailed');return;}
+        const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.append(a);a.click();a.remove();
+        const preview=document.createElement('img');preview.src=canvas.toDataURL('image/png');preview.alt=canvas.getAttribute('aria-label');preview.style.cssText='max-width:100%;height:auto;margin-top:12px';
+        $('download-status').replaceChildren(document.createTextNode(t('downloaded')),preview);
+        setTimeout(()=>URL.revokeObjectURL(url),30000);
+      },'image/png');
+    }catch{$('download-status').textContent=t('downloadFailed');}
+  });
+  $('metask-logo').addEventListener('load',()=>{if(state.screen==='result')renderResult();});
+  render();
+})();
+</script>
+</body>
+</html>
